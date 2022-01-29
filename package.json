@@ -1,0 +1,35 @@
+{
+  "name": "employee-tracker-cms",
+  "version": "1.0.0",
+  "description": "CLI",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViennaBorowska/Employee-Tracker-CMS.git"
+  },
+  "keywords": [
+    "CMS",
+    "MySQL"
+  ],
+  "author": "Vienna Borowska",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/ViennaBorowska/Employee-Tracker-CMS/issues"
+  },
+  "homepage": "https://github.com/ViennaBorowska/Employee-Tracker-CMS#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "dotenv": "^14.3.2",
+    "express": "^4.17.2",
+    "inquirer": "^8.2.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.15.0"
+  }
+}
