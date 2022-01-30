@@ -5,6 +5,7 @@ require('console.table');
 
 //MySql connection file
 const db = require('./db/connection');
+const { exit } = require('process');
 
 //Inquirer main prompt questions
 function mainPrompt() {
@@ -50,9 +51,9 @@ function mainPrompt() {
           updateEmpRole();
           break;
         case 'Quit':
-          exit();
+          quit();
         default:
-          exit();
+          quit();
       }
     });
 }
@@ -221,6 +222,8 @@ const updateEmpRole = () => {
   });
 };
 
-function exit() {}
+function quit() {
+  mainPrompt.ui.close();
+}
 
 mainPrompt();
