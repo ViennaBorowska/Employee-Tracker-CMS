@@ -5,7 +5,6 @@ require('console.table');
 
 //MySql connection file
 const db = require('./db/connection');
-const { exit } = require('process');
 
 //Inquirer main prompt questions
 function mainPrompt() {
@@ -176,21 +175,22 @@ function addEmp() {
   });
 }
 
+//Function to update employee role
 const updateEmpRole = () => {
   const query =
-    "SELECT CONCAT(employees.first_name, ' ',employees.last_name) AS whole_name FROM employees;";
+    "SELECT id, CONCAT(employees.first_name, ' ',employees.last_name) AS whole_name FROM employees;";
   db.query(query, (err, res) => {
     if (err) throw err;
     var empList = [];
     for (let i = 0; i < res.length; i++) {
-      empList.push(res[i].whole_name);
+      empList.push({ name: res[i].whole_name, value: res[i].id });
     }
     // Inside one query function we make another to make another list of Possible Roles to Update to
-    db.query('SELECT roles.title FROM roles;', (err, res) => {
+    db.query('SELECT id, title FROM roles;', (err, res) => {
       if (err) throw err;
       let roleList = [];
       for (let i = 0; i < res.length; i++) {
-        roleList.push(res[i].title);
+        roleList.push({ name: res[i].title, value: res[i].id });
       }
       // User is prompted with the list of employees and Roles
       inquirer
@@ -215,13 +215,13 @@ const updateEmpRole = () => {
           let finalQuery = query + res.roles + query2 + res.chooseEmp;
           db.query(finalQuery, (err, response) => {
             if (err) throw err;
+            console.log('Your employees role has been updated.');
+            mainPrompt();
           });
-          mainPrompt();
         });
     });
   });
 };
-
 function quit() {
   process.exit();
 }

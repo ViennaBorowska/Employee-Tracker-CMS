@@ -44,17 +44,21 @@ https://github.com/ViennaBorowska/Employee-Tracker-CMS
 
 ### Please see the walkthrough video below to see how the application should be used.
 
+<img src="assets/Project-Demo.gif" alt="Demo video of how to run and use program - visual of app being run in command line and all selections demonstrated; view all departments, view all roles, view all employees, add a department, add a role, add an employee and update employee role">
+
+This video is also available in Google Drive [here](https://drive.google.com/file/d/1s3CG77kImgCxP26_2QGJsr6m2QIGBMg7/view?usp=sharing)
+
 ## Contributing
 
 Contributions and improvements are welcome. Please create a new branch and submit any changes for review. Do not push to the main branch.
 
 ## Improvements
 
-I did not have time to include all the features I would have likes for this assignment, but when I get the time I would like to add the following improvements to the application;
+I did not have time to include all the features I would have liked for this assignment, but when I get the time I would like to add the following improvements to the application;
 
 - Validation statements for enquirer questions to catch invalid inputs
 - The bonus features listed in the README e.g. delete functions for users, roles and departments, and more targeted views e.g. view employees by department.
-- An ASCII logo (I saw this in another project and while not essential, I think this would be nice to include to improve the UI)
+- An ASCII logo (I saw this in another project and while not essential, I think it would be nice to include to improve the UI)
 
 ## Questions
 
