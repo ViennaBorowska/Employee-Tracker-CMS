@@ -168,15 +168,14 @@ function addEmp() {
       [res.first, res.last, res.roleId, res.managerId],
       (err, res) => {
         if (err) throw err;
-        console.log(`Your new employee has been added`);
+        console.table(`Your new employee has been added`);
         mainPrompt();
       }
     );
   });
 }
-//Update employee role function
+
 const updateEmpRole = () => {
-  //Query to get list of employees
   const query =
     "SELECT CONCAT(employees.first_name, ' ',employees.last_name) AS whole_name FROM employees;";
   db.query(query, (err, res) => {
@@ -185,14 +184,14 @@ const updateEmpRole = () => {
     for (let i = 0; i < res.length; i++) {
       empList.push(res[i].whole_name);
     }
-    //Query to get list of roles
+    // Inside one query function we make another to make another list of Possible Roles to Update to
     db.query('SELECT roles.title FROM roles;', (err, res) => {
       if (err) throw err;
       let roleList = [];
       for (let i = 0; i < res.length; i++) {
         roleList.push(res[i].title);
       }
-      //Inquirer questions using created employee and role lists for user selection
+      // User is prompted with the list of employees and Roles
       inquirer
         .prompt([
           {
@@ -209,14 +208,13 @@ const updateEmpRole = () => {
           },
         ])
         .then((res) => {
-          //Queries using user input to update table
+          // Setting up variables with the User's choices, Entering those variables into a MySQL query statement
           let query = 'UPDATE employees SET employees.role_id=';
           let query2 = ' WHERE employees.id=';
           let finalQuery = query + res.roles + query2 + res.chooseEmp;
           db.query(finalQuery, (err, response) => {
             if (err) throw err;
           });
-          console.log(`Your employee's role has been updated.`);
           mainPrompt();
         });
     });
