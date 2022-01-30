@@ -95,7 +95,7 @@ function addDept() {
       name: 'newDept',
     })
     .then((res) => {
-      db.query(query, res.departments, (err, res) => {
+      db.query(query, res.newDept, (err, res) => {
         if (err) throw err;
         console.log(`Your new department has been added`);
         mainPrompt();
@@ -103,7 +103,38 @@ function addDept() {
     });
 }
 
-function addRole() {}
+function addRole() {
+  const query =
+    'INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)';
+  inquirer
+    .prompt([
+      {
+        type: 'input',
+        name: 'title',
+        message: 'Please enter the job title you would like to add:',
+      },
+      {
+        type: 'input',
+        name: 'salary',
+        message: 'Please enter the salary for this role:',
+      },
+      {
+        type: 'input',
+        name: 'dept',
+        message: 'Please select a department for this role:',
+      },
+    ])
+    .then((res) => {
+      db.query(query, [res.title, res.salary, res.dept], (err, res) => {
+        if (err) throw err;
+        console.log(`Your new role has been added`);
+        mainPrompt();
+      });
+    });
+}
 
 function addEmp() {}
+
+function exit() {}
+
 mainPrompt();
