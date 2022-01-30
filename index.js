@@ -223,7 +223,7 @@ const updateEmpRole = () => {
 };
 
 function quit() {
-  mainPrompt.ui.close();
+  process.exit();
 }
 
 mainPrompt();

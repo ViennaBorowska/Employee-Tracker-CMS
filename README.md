@@ -2,7 +2,7 @@
 
 ## Description
 
-A CMS (Content Management System) CLI to veiw and manage a company's employees, roles and departments.
+A CMS (Content Management System) CLI to veiw and manage a company's employees, roles and departments. The database can be build up manually, or there is a seeds.sql file in the project with dummy data to test the functionality of the application.
 
 ## LANGUAGE : JavaScript
 
@@ -54,7 +54,6 @@ I did not have time to include all the features I would have likes for this assi
 
 - Validation statements for enquirer questions to catch invalid inputs
 - The bonus features listed in the README e.g. delete functions for users, roles and departments, and more targeted views e.g. view employees by department.
-- A working exit function
 - An ASCII logo (I saw this in another project and while not essential, I think this would be nice to include to improve the UI)
 
 ## Questions
